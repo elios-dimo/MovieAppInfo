@@ -11,6 +11,7 @@ The project was built in React js making use of html,css and javascript knowledg
 
 # What I learned and practiced 
 
+-React js components, props
 - API fetch (async functions)
 - React router
 - useState, useEffect, useContext, useParams
