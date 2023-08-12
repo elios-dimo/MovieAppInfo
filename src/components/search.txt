@@ -1,0 +1,32 @@
+const getMovieRequest = async () => {
+    if (title.trim() !== '') {
+      const url = `http://www.omdbapi.com/?apikey=d21d4aa1&s=${title} `;
+      try {
+        const response = await fetch(url);
+        const responseJSON = await response.json();
+        console.log('1: ', responseJSON);
+
+        if (responseJSON.Search) {
+          const movieDetailedPromises = responseJSON.Search.map(
+            async (movie) => {
+              const movieInfo = `http://www.omdbapi.com/?apikey=d21d4aa1&i=${movie.imdbID}&plot=full`;
+              const movieInfoPromises = await fetch(movieInfo);
+
+              const movieInfoPromisesJSON = movieInfoPromises.json();
+
+              return movieInfoPromisesJSON;
+            }
+          );
+          const movieFinalDetails = await Promise.all(movieDetailedPromises);
+          console.log('4: ', movieFinalDetails);
+          setMovieData(movieFinalDetails);
+        } else {
+          setMovieData([]);
+        }
+      } catch {
+        setMovieData([]);
+      }
+    } else {
+      setMovieData([]);
+    }
+  };
