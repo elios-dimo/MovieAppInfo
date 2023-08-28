@@ -1,6 +1,6 @@
 # MovieAppInfo
 
-A movie info app with  where the user enters the name of a movie and gets a list of related ones. 
+A movie info app where the user enters the name of a movie and gets a list of related ones. 
 Clicking one of the movies in the list redirects him to that movie title, year, director, poster and plot.
 
 ![Alt Text](MovieApp.gif)
